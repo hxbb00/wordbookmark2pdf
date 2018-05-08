@@ -45,17 +45,19 @@ convert word to pdf by replace bookmark
 </BookMarkConfs>
  
 书签配置文件对象
-类图	 
+
 功能	该类为模板配置文件实体类
+
 说明	从左到右依次包含子项
 
 模板处理器
-类图	 
+ 
 功能	该类为模板处理器,用于处理配置文件不能处理的情况,派生自IWordBookmarkHandler<T>接口的子类(一般从WordBookmarkRepositoryHandler<T>派生)将被自动识别进行匹配,优先匹配代码,框架将会查找函数签名满足下列条件的函数作为书签处理函数,函数名称对应书签名称(忽略大小写):
 1.	参数个数为三个
 2.	第一个参数是下列类型之一: DocumentFormat.OpenXml.Wordprocessing.Text/DocumentFormat.OpenXml.Packaging.ImagePart/DocumentFormat.OpenXml.Wordprocessing.Table
 3.	第二个参数是ReplacerContext<T>类型的
 4.	第三个参数是Action<string>类型的
+
 说明	查找的处理器范围和派生的上下文类在同一程序集中
 
 实例代码:
