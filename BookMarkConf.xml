@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BookMarkConfs>
+  <BookMarkConf name="a">
+    <BookMark name="dz_time" type="TEXT" text="hjhj" sql="" url=""></BookMark>
+    <BookMark name="districtName2" type="TEXT" text="@SYS.TIME:'yyyyMMdd'" sql="" url=""></BookMark>
+    <BookMark name="tu1" type="PICTURE" text="" sql="" url="a.png"></BookMark>
+    <BookMark name="d" type="" text="" sql="" url=""></BookMark>
+  </BookMarkConf>
+</BookMarkConfs>

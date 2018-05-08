@@ -1,0 +1,13 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="AfterBuild">
+    <GetReferenceAssemblyPaths BypassFrameworkInstallChecks="False" TargetFrameworkMoniker="$(TargetFrameworkMoniker)">
+      <Output TaskParameter="FullFrameworkReferenceAssemblyPaths" PropertyName="_ReferenceAssembliesPath" />
+      <!-- Note: _ReferenceAssembliesPath will contain a trailing backslash which /targetplatform
+           can't handle. Circumvented by adding a trailing period below. -->
+    </GetReferenceAssemblyPaths>
+    <Exec Condition="'$(Configuration)' == 'Release'" Command="&quot;$(ProjectDir)ilrepack\ilrepack.exe&quot; /verbose /t:library /targetplatform:v4,&quot;$(_ReferenceAssembliesPath).&quot; /keyfile:&quot;$(ProjectDir)Word2Pdf.snk&quot; /internalize:&quot;$(ProjectDir)ilrepack\internalize.exclude&quot; /out:&quot;$(OutputPath)$(ProjectName).dll&quot; &quot;$(IntermediateOutputPath)$(ProjectName).dll&quot; &quot;$(OutputPath)DocumentFormat.OpenXml.dll&quot;" />
+    <Exec Command="call xcopy /y /r &quot;$(ProjectDir)宏书签替换库说明文档.docx&quot; &quot;$(OutputPath)&quot;" />
+
+  </Target>
+</Project>
+
